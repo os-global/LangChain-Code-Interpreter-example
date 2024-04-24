@@ -32,14 +32,14 @@ def main():
     tools = [PythonREPLTool()]
     python_agent = create_react_agent(
         prompt=prompt,
-        llm=ChatOpenAI(temperature=0),
+        llm=ChatOpenAI(temperature=0, model="gpt-4-turbo"),
         tools=tools,
     )
 
     python_agent_executor = AgentExecutor(agent=python_agent, tools=tools, verbose=True)
 
     csv_agent_executor: AgentExecutor = create_csv_agent(
-        llm=ChatOpenAI(temperature=0),
+        llm=ChatOpenAI(temperature=0, model="gpt-4"),
         path="episode_info.csv",
         verbose=True,
     )
@@ -68,7 +68,7 @@ def main():
     prompt = base_prompt.partial(instructions="")
     grand_agent = create_react_agent(
         prompt=prompt,
-        llm=ChatOpenAI(temperature=0),
+        llm=ChatOpenAI(temperature=0, model="gpt-4-turbo"),
         tools=tools,
     )
     grand_agent_executor = AgentExecutor(agent=grand_agent, tools=tools, verbose=True)
