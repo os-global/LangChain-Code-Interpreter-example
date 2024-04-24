@@ -1,0 +1,8 @@
+langchain
+langchain-experimental
+langchain-openai
+qrcode
+python-dotenv
+langchainhub
+pandas
+tabulate
